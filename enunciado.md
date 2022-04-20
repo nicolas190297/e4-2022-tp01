@@ -131,7 +131,7 @@ void minusculaEnLugar(char * cadena,size_t longitud);
 
 Refactorizar la rutina `copiaMemoria` para hacer un uso más eficiente del procesador.
 
-    - Copiando palabras cuando sea posible
-    - Copiando múltiples palabras por vez cuando sea posible
+- Copiando palabras cuando sea posible
+- Copiando múltiples palabras por vez cuando sea posible
 
 Identificar un patrón detrás de "mayusculaEnLugar" y "minusculaEnLugar" y extraerlo mediante refactorización del código (el comportamiento y la API pública permanecerá idéntica).
