@@ -21,20 +21,24 @@
 
 defun copiaMemoria
     // Implementación aquí
+    // R0: origen, R1: destino, R2: longitud
     bx lr
 endfun copiaMemoria
 
 defun copiaCadena
     // Implementación aquí
+    // R0: origen, R1: destino, R2: longitudMaxima
     bx lr
 endfun copiaCadena
 
 defun mayusculaEnLugar
     // Implementación aquí
+    // R0: cadena, R1: longitudMaxima
     bx lr
 endfun mayusculaEnLugar
 
 defun minusculaEnLugar
     // Implementación aquí
+    // R0: cadena, R1: longitudMaxima
     bx lr
 endfun minusculaEnLugar
