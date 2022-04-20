@@ -87,9 +87,9 @@ Dadas dos regiones de memoria contigua, no necesariamente alineadas y de longitu
 El prototipo de la rutina `copiaMemoria` es el siguiente:
 
 ```c
-void copiaMemoria(const void * baseOrigen,void * baseDestino,size_t longitud);
+void copiaMemoria(const void * origen,void * destino,size_t longitud);
 ```
-donde `baseOrigen` y `baseDestino` son las direcciones iniciales de las regiones de memoria de origen y destino; y `longitud` es la extensión en bytes de cada región. Recuerda que según el estándar de llamado a procedimiento de ARM `baseOrigen` se guarda en `R0`, `baseDestino` en `R1` y `longitud` en `R2`. 
+donde `origen` y `destino` son las direcciones iniciales de las regiones de memoria de origen y destino; y `longitud` es la extensión en bytes de la región a copiar (se supone que la región de destino es suficientemente grande). Recuerda que según el estándar de llamado a procedimiento de ARM `origen` se guarda en `R0`, `destino` en `R1` y `longitud` en `R2`. 
 
 
 ## Copia Cadena
@@ -98,33 +98,33 @@ Una cadena ASCIIZ (formato usado por la librería estándar del lenguaje C) cons
 
 Dada una cadena ASCIIZ de origen y una región de memoria de destino con longitud suficiente para acomodarla, la rutina `copiaCadena` debe copiar la cadena ASCIIZ en la región destino. No alterará los bytes de la región de destino que no fueron ocupados al copiar la cadena.
 
-Dada una cadena ASCIIZ de origen y una región de memoria de destino con longitud $l$ que no es suficiente para acomodarla, entonces la rutina `copiaCadena` debe copiar $l-1$ caracteres en la región de destino seguidos de un terminador nulo.
+Dada una cadena ASCIIZ de origen y una región de memoria de destino con longitud (especificada en `longitudMaxima`) $l$ que no es suficiente para acomodarla, entonces la rutina `copiaCadena` debe copiar $l-1$ caracteres en la región de destino seguidos de un terminador nulo.
 
 El prototipo de la rutina `copiaCadena` es el siguiente
 ```c
-void copiaCadena(const char * origen, char * baseDestino, size_t longitudDestino);
+void copiaCadena(const char * origen, char * destino, size_t longitudMaxima);
 ```
 
 ## Pasar a mayúscula sobreescribiendo la cadena original
 
 Dada una cadena ASCIIZ correctamente terminada y ubicada en una región de longitud suficiente para contenerla, la rutina `mayusculaEnLugar` debe recorrer la cadena y sobreescribir los valores correspondientes a letras minúsculas en código ASCII por los valores de las correspondientes letras mayúsculas.
 
-Dada una cadena ASCII sin el terminador nulo en una región de longitud dada, `mayusculaEnLugar` procede como en el caso anterior pero se detiene al llegar al límite de la región de memoria especificada.
+Dada una cadena ASCII sin el terminador nulo, `mayusculaEnLugar` procede como en el caso anterior pero se detiene al llegar al límite de la región de memoria especificado en `longitudMaxima`.
 
 El prototipo de la rutina `mayusculaEnLugar` es el siguiente
 ```c
-void mayusculaEnLugar(char * cadena,size_t longitud);
+void mayusculaEnLugar(char * cadena,size_t longitudMaxima);
 ```
 
 ## Pasar de minúscula sobreescribiendo la cadena original
 
 Dada una cadena ASCIIZ correctamente terminada y ubicada en una región de longitud suficiente para contenerla, la rutina `minusculaEnLugar` debe recorrer la cadena y sobreescribir los valores correspondientes a letras mayúsculas en código ASCII por los valores de las correspondientes letras minúsculas.
 
-Dada una cadena ASCII sin el terminador nulo en una región de longitud dada, `minusculaEnLugar` procede como en el caso anterior pero se detiene al llegar al límite de la región de memoria especificada.
+Dada una cadena ASCII sin el terminador nulo, `minusculaEnLugar` procede como en el caso anterior pero se detiene al llegar al límite de la región de memoria especificado en `longitudMaxima`.
 
 El prototipo de la rutina `minusculaEnLugar` es el siguiente
 ```c
-void minusculaEnLugar(char * cadena,size_t longitud);
+void minusculaEnLugar(char * cadena,size_t longitudMaxima);
 ```
 
 ## Extra
