@@ -24,19 +24,19 @@ int main(void)
     UNITY_BEGIN();
     
     RUN_TEST(copiaMemoria_debe_copiar_cero_bytes);
-    // RUN_TEST(copiaMemoria_debe_copiar_un_byte);
-    // RUN_TEST(copiaMemoria_debe_copiar_media_palabra);
-    // RUN_TEST(copiaMemoria_debe_copiar_una_palabra);
-    // RUN_TEST(copiaMemoria_debe_copiar_una_palabra_mal_alineada);
+    RUN_TEST(copiaMemoria_debe_copiar_un_byte);
+    RUN_TEST(copiaMemoria_debe_copiar_media_palabra);
+    RUN_TEST(copiaMemoria_debe_copiar_una_palabra);
+    RUN_TEST(copiaMemoria_debe_copiar_una_palabra_mal_alineada);
     
-    // RUN_TEST(copiaCadena_debe_copiar_una_cadena);
-    // RUN_TEST(copiaCadena_debe_respetar_el_espacio_de_destino);
+    RUN_TEST(copiaCadena_debe_copiar_una_cadena);
+    RUN_TEST(copiaCadena_debe_respetar_el_espacio_de_destino);
     
-    // RUN_TEST(mayusculaEnLugar_debe_pasar_a_mayuscula_una_cadena);
-    // RUN_TEST(mayusculaEnLugar_debe_respetar_la_longitud_maxima);
+    RUN_TEST(mayusculaEnLugar_debe_pasar_a_mayuscula_una_cadena);
+    RUN_TEST(mayusculaEnLugar_debe_respetar_la_longitud_maxima);
     
-    // RUN_TEST(minusculaEnLugar_debe_pasar_a_minuscula_una_cadena);
-    // RUN_TEST(minusculaEnLugar_debe_respetar_la_longitud_maxima);
+    RUN_TEST(minusculaEnLugar_debe_pasar_a_minuscula_una_cadena);
+    RUN_TEST(minusculaEnLugar_debe_respetar_la_longitud_maxima);
     return UNITY_END();   
 }
 
@@ -50,7 +50,7 @@ static void copiaMemoria_debe_copiar_cero_bytes(void)
     const uint8_t esperado[4] = {XB,XB,XB,XB};
     uint8_t destino[4] = {XB,XB,XB,XB};
     copiaMemoria(origen,destino,0);
-    TEST_ASSERT_EQUAL_MEMORY(esperado,destino,4);
+    TEST_ASSERT_EQUAL_MEMORY(esperado,destino,4); //puntero 
 }
 
 static void copiaMemoria_debe_copiar_un_byte(void)
